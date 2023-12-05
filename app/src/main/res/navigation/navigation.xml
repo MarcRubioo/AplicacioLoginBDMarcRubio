@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/frg1">
+
+    <fragment
+        android:id="@+id/frg1"
+        android:name="com.marcr.aplicaciologinbdmarcrubio.frg1"
+        android:label="fragment_frg1"
+        tools:layout="@layout/fragment_frg1" >
+
+        <action
+            android:id="@+id/action_frg1_to_frg2"
+            app:destination="@id/frg2" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/frg2"
+        android:name="com.marcr.aplicaciologinbdmarcrubio.frg2"
+        android:label="fragment_frg2"
+        tools:layout="@layout/fragment_frg2" />
+</navigation>
