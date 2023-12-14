@@ -11,6 +11,10 @@ class PersonaProvider {
             return currentPerson
         }
 
+        fun getByName(user: String): PersonaModel? {
+            return quotes.find { it.nom == user }
+        }
+
         private val quotes = listOf(
             PersonaModel(
                 nom= "Marc",

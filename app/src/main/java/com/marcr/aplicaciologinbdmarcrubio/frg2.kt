@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.marcr.aplicaciologinbdmarcrubio.databinding.FragmentFrg2Binding
 
 class frg2 : Fragment() {
@@ -19,11 +21,14 @@ class frg2 : Fragment() {
 
         val binding = FragmentFrg2Binding.inflate(layoutInflater)
 
-        viewModel.next()
+        val model = ViewModelProvider(requireActivity()).get(SharedVM::class.java)
 
-        binding.textViewNom.text = viewModel.nom
-        binding.textViewEdat.text = viewModel.edat.toString()
-        binding.textViewCorreu.text = viewModel.correu
+        model.user.observe(viewLifecycleOwner, Observer {user ->
+            viewModel.primerUsauri(user)
+            binding.textViewNom.text = viewModel.nom
+            binding.textViewEdat.text = viewModel.edat.toString()
+            binding.textViewCorreu.text = viewModel.correu
+        })
 
         binding.containerView.setOnClickListener {
             viewModel.next()

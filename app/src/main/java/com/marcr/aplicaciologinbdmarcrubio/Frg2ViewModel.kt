@@ -21,4 +21,12 @@ class Frg2ViewModel : ViewModel() {
         _edat=currentPerson.edat
         _correu=currentPerson.correu
     }
+    fun primerUsauri(name: String) {
+        val user = PersonaProvider.getByName(name)
+        if (user != null) {
+            _nom = user.nom
+            _edat = user.edat
+            _correu = user.correu
+        }
+    }
 }

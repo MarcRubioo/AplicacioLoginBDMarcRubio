@@ -32,5 +32,6 @@ class AccountProvider {
         fun getUser(user: String): AccountModel? {
             return quotes.find { it.user == user }
         }
+
     }
 }

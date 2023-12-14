@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.marcr.aplicaciologinbdmarcrubio.databinding.FragmentFrg1Binding
 import org.w3c.dom.Text
@@ -23,6 +24,8 @@ class frg1  : Fragment() {
     ): View? {
 
         val binding = FragmentFrg1Binding.inflate(layoutInflater)
+        val model = ViewModelProvider(requireActivity()).get(SharedVM::class.java)
+
         binding.button.setOnClickListener{
             val user= binding.editTextUser.text
             val pass= binding.editTextPassword.text
@@ -30,6 +33,7 @@ class frg1  : Fragment() {
             val comprovacio= viewModel.verifyUser(user,pass)
 
             if (comprovacio){
+                model.pasarUser(user.toString())
                 findNavController().navigate(R.id.action_frg1_to_frg2, null)
             }
             else {
