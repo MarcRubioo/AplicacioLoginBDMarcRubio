@@ -38,7 +38,7 @@ class PersonaProvider {
                 correu = "pepe@gmail.com"
             ),
             PersonaModel(
-                nom= "carlos",
+                nom= "Carlos",
                 edat = 22,
                 correu = "calos@gmail.com"
             ),
